@@ -1,0 +1,49 @@
+{{ if (eq .chezmoi.os "linux") -}}
+{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+
+#!/bin/bash
+
+
+packages+=(
+    git
+    zsh
+    firefox
+    snapd
+    curl
+    tig
+)
+
+classic_snaps+=(
+    code
+)
+
+snaps+=(
+    keepassxc
+    hugo
+    chromium
+)
+
+echo "*** Update ***"
+sudo add-apt-repository universe
+sudo apt update
+echo "*** Update done ***"
+
+echo "*** Install package ***"
+sudo apt install -y ${packages[@]}
+echo "*** Install package done ***"
+
+if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
+    echo "*** Install snaps ***"
+    for snap in ${snaps[@]}; do
+        sudo snap install $snap
+    done
+
+    echo "*** Install classic snaps"
+    for classic_snap in ${classic_snaps[@]}; do
+        sudo snap install $classic_snap --classic
+    done
+    echo "*** Install snaps done ***"
+fi
+
+{{ end }}
+{{ end }}

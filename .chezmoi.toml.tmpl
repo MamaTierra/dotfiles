@@ -1,0 +1,12 @@
+{{- $personal := promptBool "personal" -}}
+
+{{- $email := "" -}}
+{{- if $personal -}}
+{{-     $email = "pierre.lespagnol01@gmail.com" -}}
+{{- else -}}
+{{-     $email = "pierre.lespagnol@savoirfairelinux.com" -}}
+{{- end }}
+
+[data]
+email = {{ $email | quote }}
+personal = {{ $personal }}
