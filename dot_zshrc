@@ -114,6 +114,7 @@ alias jamic="export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Documents/ring-projec
 alias jamiq="export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Documents/ring-project/install/lrc/lib/;$HOME/Documents/ring-project/install/client-qt/bin/jami-qt -d"
 alias wiser_upgrade="$HOME/Documents/Wiser/scripts/fetch_and_upgrade.sh"
 alias ssh_build="ssh plespagnol@192.168.49.10"
+alias rconfig='rclone config && chezmoi add --encrypt $HOME/.config/rclone/rclone.conf'
 
 #FFMPEG
 #export CPATH="$HOME/ffmpeg_build/include"
