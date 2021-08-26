@@ -116,6 +116,13 @@ alias wiser_upgrade="$HOME/Documents/Wiser/scripts/fetch_and_upgrade.sh"
 alias ssh_build="ssh plespagnol@192.168.49.10"
 alias rconfig='rclone config && chezmoi add --encrypt $HOME/.config/rclone/rclone.conf'
 alias python=python3
+alias pip=pip3
+
+# Functions
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
 
 #FFMPEG
 #export CPATH="$HOME/ffmpeg_build/include"
