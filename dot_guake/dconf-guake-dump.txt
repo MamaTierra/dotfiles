@@ -24,7 +24,7 @@ use-scrollbar=true
 use-trayicon=true
 use-vte-titles=true
 window-halignment=0
-window-height=26
+window-height=28
 window-losefocus=false
 window-ontop=true
 window-refocus=false
@@ -32,17 +32,25 @@ window-tabbar=true
 window-valignment=1
 window-width=96
 
+[keybindings/global]
+show-hide='F12'
+
 [keybindings/local]
 close-tab='disabled'
 new-tab='disabled'
-new-tab-home='disabled'
+new-tab-home='<Primary><Shift>n'
+next-tab='<Primary>Page_Up'
+previous-tab='<Primary>Page_Down'
 rename-current-tab='disabled'
 reset-terminal='<Primary><Shift>g'
 split-tab-horizontal='<Primary><Shift>p'
 split-tab-vertical='<Primary><Shift>o'
 
+[style]
+cursor-blink-mode=0
+
 [style/background]
-transparency=94
+transparency=91
 
 [style/font]
 allow-bold=true
