@@ -4,7 +4,7 @@ echo "*** Configure guake ***"
 
 # Load guake config
 if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
-    dconf load /apps/guake/ < ${HOME}/.guake/dconf-guake-dump.txt
+    . ${HOME}/scripts/config_guake.sh
 fi
 
 echo "*** Configure guake done ***"
