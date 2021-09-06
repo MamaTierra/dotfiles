@@ -1,0 +1,19 @@
+[Unit]
+Description=pcloud (rclone)
+AssertPathIsDirectory=/mnt/pcloud
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount \
+        --config=/home/pierre/.config/rclone/rclone.conf \
+        --vfs-cache-mode writes \
+        --allow-other \
+        pcloud:/ /mnt/pcloud
+ExecStop=/bin/fusermount -u /mnt/pcloud
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
