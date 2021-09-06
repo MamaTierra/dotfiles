@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -eufo pipefail
-
-
 echo "*** Install guake ***"
 destdir="${HOME}/Software/guake"
 rm -rf ${destdir}

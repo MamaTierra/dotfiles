@@ -1,0 +1,67 @@
+########################
+###### Zsh config ######
+########################
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+###################
+###### Alias ######
+###################
+
+alias rconfig='rclone config && chezmoi add --encrypt $HOME/.config/rclone/rclone.conf'
+alias python=python3
+alias pip=pip3
+
+{{- if not .personal }}
+# SFL
+alias jamid="$HOME/Documents/ring-project/install/daemon/lib/ring/dring -cdp"
+alias jamidbg="gdb --args $HOME/Documents/ring-project/install/daemon/lib/ring/dring -cdp"
+alias jamic="export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Documents/ring-project/install/lrc/lib/;$HOME/Documents/ring-project/install/client-gnome/bin/jami-gnome -d"
+alias jamiq="export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Documents/ring-project/install/lrc/lib/;$HOME/Documents/ring-project/install/client-qt/bin/jami-qt -d"
+alias wiser_upgrade="$HOME/Documents/Wiser/scripts/fetch_and_upgrade.sh"
+alias ssh_build="ssh plespagnol@192.168.49.10"
+{{- end }}
+
+###################
+#### Functions ####
+###################
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
+
+##################################
+##### Environement variables #####
+##################################
+
+# FFMPEG
+#export CPATH="$HOME/ffmpeg_build/include"
+#export LIBRARY_PATH="$HOME/ffmpeg_build/lib"
+#export LD_LIBRARY_PATH="$HOME/ffmpeg_build/lib"
+#export PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig"
+#export PATH="$HOME/ffmpeg_build/bin:$PATH"
+
+# Android studio
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
+export ANDROID_HOME=/home/plespagnol/Android/Sdk
+export ANDROID_SDK=/home/plespagnol/Android/Sdk
+export ANDROID_NDK_ROOT=/home/plespagnol/Android/Sdk/ndk/21.1.6352462/
+export ANDROID_NDK=/home/plespagnol/Android/Sdk/ndk/21.1.6352462/
+
+# PATH
+export PATH=$HOME/Software/depot_tools:$PATH:$HOME/Documents/Wiser/repo/devscripts/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_NDK:$JAVA_HOME/bin:$HOME/.local/bin
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
