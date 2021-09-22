@@ -1,6 +1,8 @@
-{{- $personal := promptBool "personal" -}}
-
 {{- $email := "" -}}
+
+{{- $personal := promptBool "personal" -}}
+{{- $headless := promptBool "headless" -}}
+
 {{- if $personal -}}
 {{-     $email = "pierre.lespagnol01@gmail.com" -}}
 {{- else -}}
@@ -10,3 +12,4 @@
 [data]
 email = {{ $email | quote }}
 personal = {{ $personal }}
+headless = {{ $headless }}

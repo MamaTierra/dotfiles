@@ -1,8 +1,10 @@
-#!/bin/bash
+{{ if (eq .chezmoi.osRelease.id "ubuntu") -}}
+    #!/bin/bash
 
-echo "*** Configure guake ***"
+    echo "*** Configure guake ***"
 
-# Load guake config
-if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
-    . ${HOME}/scripts/config_guake.sh
-fi
+    # Load guake config
+    if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
+        . ${HOME}/scripts/config_guake.sh
+    fi
+{{ end }}

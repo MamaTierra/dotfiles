@@ -1,37 +1,51 @@
 {{ if (eq .chezmoi.os "linux") -}}
-{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu") -}}
+{{ if (eq .chezmoi.osRelease.id "debian" "ubuntu" "fedora") -}}
 
 #!/bin/bash
-
-
 packages+=(
     git
     zsh
-    firefox
     snapd
     curl
     wget
     tig
-    gnome-tweak-tool
 )
 
-classic_snaps+=(
-    code
-)
+snaps=()
+classic_snaps=()
 
-snaps+=(
-    keepassxc
-    hugo
-    chromium
-    spotify
-)
+{{- if not .headless }}
+    snaps+=(
+        keepassxc
+        hugo
+        chromium
+        spotify
+    )
 
-echo "*** Update ***"
-sudo add-apt-repository universe
-sudo apt update
+    classic_snaps+=(
+        code
+    )
 
-echo "*** Install package ***"
-sudo apt install -y ${packages[@]}
+    package+=(
+        firefox
+    )
+{{ end }}
+
+
+{{ if (eq .chezmoi.osRelease.id "ubuntu") -}}
+    echo "*** Update ***"
+    sudo add-apt-repository universe
+    sudo apt update
+
+    echo "*** Install package ***"
+    sudo apt install -y ${packages[@]}
+{{ else if (eq .chezmoi.osRelease.id "fedora") -}}
+    echo "*** Update ***"
+    sudo dnf update
+
+    echo "*** Install package ***"
+    sudo dnf install -y ${packages[@]}
+{{ end }}
 
 if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
     echo "*** Install snaps ***"
