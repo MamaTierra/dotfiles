@@ -29,11 +29,9 @@ snaps+=(
 echo "*** Update ***"
 sudo add-apt-repository universe
 sudo apt update
-echo "*** Update done ***"
 
 echo "*** Install package ***"
 sudo apt install -y ${packages[@]}
-echo "*** Install package done ***"
 
 if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
     echo "*** Install snaps ***"
@@ -45,7 +43,6 @@ if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
     for classic_snap in ${classic_snaps[@]}; do
         sudo snap install $classic_snap --classic
     done
-    echo "*** Install snaps done ***"
 fi
 
 {{ end }}

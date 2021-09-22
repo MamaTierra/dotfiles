@@ -12,14 +12,11 @@ ${destdir}/scripts/bootstrap-dev-debian.sh run make
 # Install guake
 make -C ${destdir}
 sudo make -C ${destdir} install
-echo "*** Install guake done ***"
 
 if [[ -z "${RUNNING_IN_DOCKER}" ]]; then
     echo "*** Install Joplin ***"
     wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-    echo "*** Install Joplin done ***"
 fi
 
 echo "*** Install rclone ***"
 curl https://rclone.org/install.sh | sudo bash
-echo "*** Install rclone done ***"
