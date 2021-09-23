@@ -16,7 +16,6 @@ classic_snaps=()
 
 {{- if not .headless }}
     snaps+=(
-        keepassxc
         hugo
         chromium
         spotify
@@ -28,6 +27,7 @@ classic_snaps=()
 
     package+=(
         firefox
+        keepassxc
     )
 {{ end }}
 
