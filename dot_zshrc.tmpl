@@ -21,8 +21,10 @@ source $ZSH/oh-my-zsh.sh
 ###### Alias ######
 ###################
 alias rconfig='rclone config && chezmoi add --encrypt $HOME/.config/rclone/rclone.conf'
-alias python=python3
-alias pip=pip3
+alias python='python3'
+alias pip='pip3'
+alias ssh_minix='ssh pierre@192.168.0.175'
+alias ssh_odroid='ssh pierre@192.168.0.160'
 
 {{- if not .personal }}
 # SFL
