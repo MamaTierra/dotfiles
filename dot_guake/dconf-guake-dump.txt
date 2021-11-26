@@ -31,6 +31,8 @@ window-refocus=false
 window-tabbar=true
 window-valignment=1
 window-width=96
+gtk-prefer-dark-theme=false
+gtk-theme-name='Adwaita-dark'
 
 [keybindings/global]
 show-hide='F12'
