@@ -9,6 +9,7 @@ packages+=(
     curl
     wget
     tig
+    vim
 )
 
 snaps=()
@@ -17,8 +18,8 @@ classic_snaps=()
 {{- if not .headless }}
     snaps+=(
         hugo
-        chromium
         spotify
+        keepassxc
     )
 
     classic_snaps+=(
@@ -27,7 +28,6 @@ classic_snaps=()
 
     package+=(
         firefox
-        keepassxc
     )
 {{ end }}
 
