@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo mkdir -p /mnt/pcloud /mnt/nas
+sudo mkdir -p /home/pcloud /home/nas
 
 sudo cp ${HOME}/services/nas.service /etc/systemd/system
 sudo cp ${HOME}/services/pcloud.service /etc/systemd/system

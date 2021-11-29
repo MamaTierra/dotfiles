@@ -1,6 +1,6 @@
 [Unit]
 Description=nas (rclone)
-AssertPathIsDirectory=/mnt/nas
+AssertPathIsDirectory=/home/nas
 Wants=network-online.target
 After=network-online.target
 
@@ -10,8 +10,8 @@ ExecStart=/usr/bin/rclone mount \
         --config=/home/pierre/.config/rclone/rclone.conf \
         --vfs-cache-mode writes \
         --allow-other \
-        nas:/acces_pierre /mnt/nas
-ExecStop=/bin/fusermount -u /mnt/nas
+        nas:/acces_pierre /home/nas
+ExecStop=/bin/fusermount -u /home/nas
 Restart=always
 RestartSec=10
 

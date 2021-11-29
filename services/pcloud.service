@@ -1,6 +1,6 @@
 [Unit]
 Description=pcloud (rclone)
-AssertPathIsDirectory=/mnt/pcloud
+AssertPathIsDirectory=/home/pcloud
 Wants=network-online.target
 After=network-online.target
 
@@ -10,8 +10,8 @@ ExecStart=/usr/bin/rclone mount \
         --config=/home/pierre/.config/rclone/rclone.conf \
         --vfs-cache-mode writes \
         --allow-other \
-        pcloud:/ /mnt/pcloud
-ExecStop=/bin/fusermount -u /mnt/pcloud
+        pcloud:/ /home/pcloud
+ExecStop=/bin/fusermount -u /home/pcloud
 Restart=always
 RestartSec=10
 
